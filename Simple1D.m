@@ -9,6 +9,7 @@ v0 = 1; %volt
 d = 8; %centimeter
 p0 = 10e-8; %C/m^3
 e0 = 8.85e-12; % F/m
+e = e0*er;
 
 %calculations
 d = d * 1e-2;
