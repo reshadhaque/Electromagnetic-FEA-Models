@@ -78,4 +78,12 @@ V = K\f;
 
 plot(xn, V, 'color', 'r');
 
+Vfe = Interpolate1D1D(xn, V, cl, x);
+
+AreaError = sum(abs(vx-Vfe))*100/abs(sum(vx));
+L2Error = sqrt(sum((vx-Vfe).^2* x(2)));
+
+sprintf('AreaError = %.4f', AreaError);
+sprintf('L2Error = %.1e', L2Error);
+
 
