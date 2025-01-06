@@ -1,5 +1,8 @@
 %number of mesh nodes
-Nn = 5;
+
+Simple1D;
+
+Nn = 6;
 
 %Generating 1 dimensional mesh with 5 nodes
 xn = linspace(0, d, Nn);
@@ -10,6 +13,7 @@ p = [xn' yn'];
 Ne = Nn - 1;
 cl = zeros(Ne, 2); %Connectivity list
 
+%Setting the connectivity list
 for i = 1:Ne
     for j = 1:2
         cl(i,j) = i + j - 1;
@@ -63,7 +67,7 @@ f(1) = v0;
 
 %right point
 K(Nn,Nn) = 1;
-for j = 1:Nn-1;
+for j = 1:Nn-1
     K(Nn,j) = 0;
 end
 f(Nn) = 0;
