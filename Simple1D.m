@@ -17,6 +17,6 @@ x = linspace(0, d, 1000);
 
 vx = ((p0)/(2*er*e0)) * x.^2 - ((p0*d)/(2*er*e0)+ v0/d) * x + v0;
 
-plot(x, vx, '--', 'color', 'b');
-xlabel("Distance (m)");
-ylabel("Electric Potential (V)");
+%plot(x, vx, '--', 'color', 'b');
+%xlabel("Distance (m)");
+%ylabel("Electric Potential (V)");

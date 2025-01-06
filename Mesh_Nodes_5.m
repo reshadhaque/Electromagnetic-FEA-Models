@@ -2,7 +2,8 @@
 
 Simple1D;
 
-Nn = 6;
+err = [];
+for Nn = (5:5:50)+1;
 
 %Generating 1 dimensional mesh with 5 nodes
 xn = linspace(0, d, Nn);
@@ -29,7 +30,7 @@ end
 figure(1);
 hold all;
 patch('faces', cl, 'Vertices', p)
-plot(xn, yn, 'marker', 'o');
+%plot(xn, yn, 'marker', 'o');
 
 %Allocate memory for stiffness matrix and load vector
 K = zeros(Nn, Nn);
@@ -76,14 +77,18 @@ f(Nn) = 0;
 
 V = K\f;
 
-plot(xn, V, 'color', 'r');
+%plot(xn, V, 'color', 'r');
 
 Vfe = Interpolate1D1D(xn, V, cl, x);
 
 AreaError = sum(abs(vx-Vfe))*100/abs(sum(vx));
+err(end+1) = AreaError;
+
 L2Error = sqrt(sum((vx-Vfe).^2* x(2)));
 
-sprintf('AreaError = %.4f', AreaError);
-sprintf('L2Error = %.1e', L2Error);
+sprintf('AreaError = %.4f', AreaError)
+sprintf('L2Error = %.1e', L2Error)
+
+end
 
 
